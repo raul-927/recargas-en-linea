@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <property name="autoIncrement" value="true"/>
+        
+    <changeSet id="00000000000001" author="rhernandez">
+        
+        <createTable tableName="operador">
+            <column name="operador_id" 	type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="nombre" 		type="varchar(25)"/>
+            <column name="recarga_recarga_id" 	type="bigint"/>
+        </createTable>
+        
+        <createTable tableName="persona">
+            <column name="persona_id" 	type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="nombre" 		type="varchar(255)"/>
+             <column name="documento" 	type="varchar(255)"/>
+              <column name="tipo_persona" type="ENUM('VENDEDOR','CLIENTE')"/>
+        </createTable>
+        
+        <createTable tableName="recarga">
+            <column name="recarga_id" 	type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="tipo_recarga" type="ENUM('RECARGA','PAQUETE')"/>
+            <column name="descripcion" 	type="varchar(20)"/>
+            <column name="valor" 	type="bigint"/>
+        </createTable>
+        
+        <createTable tableName="venta">
+            <column name="venta_id" 	type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="persona_persona_id" 	 	type="bigint"/>
+            <column name="operador_operador_id" 	type="bigint"/>
+            <column name="nro_celular" 	type="bigint"/>
+            <column name="cantidad" 	 type="bigint"/>
+        </createTable>
+        
+        
+        
+        
+        <addForeignKeyConstraint  baseColumnNames="recarga_recarga_id"  
+	        baseTableName="operador"  
+	        constraintName="fk_operador_recarga"
+	        onDelete="CASCADE"  
+	        onUpdate="RESTRICT"  
+	        referencedColumnNames="recarga_id"   
+	        referencedTableName="recarga"   
+	        validate="true"/>
+	        
+	        
+	   <addForeignKeyConstraint  baseColumnNames="persona_persona_id"  
+	        baseTableName="venta"  
+	        constraintName="fk_venta_persona"
+	        onDelete="CASCADE"  
+	        onUpdate="RESTRICT"  
+	        referencedColumnNames="persona_id"   
+	        referencedTableName="persona"   
+	        validate="true"/>
+	        
+	  <addForeignKeyConstraint  baseColumnNames="operador_operador_id"  
+	        baseTableName="venta"  
+	        constraintName="fk_venta_operador"
+	        onDelete="CASCADE"  
+	        onUpdate="RESTRICT"  
+	        referencedColumnNames="operador_id"   
+	        referencedTableName="operador"   
+	        validate="true"/>
+    </changeSet>
+</databaseChangeLog>

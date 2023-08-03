@@ -1,0 +1,197 @@
+{
+	"info": {
+		"_postman_id": "69d81199-25fc-4d15-ba15-ce08fcb34ada",
+		"name": "RecargaLinea",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9712537"
+	},
+	"item": [
+		{
+			"name": "Recarga",
+			"item": [
+				{
+					"name": "createRecarga",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tipoRecarga\":\"PAQUETE\",\n    \"descripcion\":\"4 gigas\",\n    \"valor\": 5000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8188/recargas",
+							"host": [
+								"localhost"
+							],
+							"port": "8188",
+							"path": [
+								"recargas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Operador",
+			"item": [
+				{
+					"name": "createOperador",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"MOVISTAR\",\n    \"recarga\":{\n        \"recargaId\":1    \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8188/operadores",
+							"host": [
+								"localhost"
+							],
+							"port": "8188",
+							"path": [
+								"operadores"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Persona",
+			"item": [
+				{
+					"name": "createPersona",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Sofia\",\n    \"documento\":\"43542569\",\n    \"tipoPersona\": \"VENDEDOR\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8188/personas",
+							"host": [
+								"localhost"
+							],
+							"port": "8188",
+							"path": [
+								"personas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ventas",
+			"item": [
+				{
+					"name": "createVenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"persona\":{\n        \"personaId\":1\n    },\n    \"operador\":{\n        \"operadorId\":1\n    },\n    \"nroCelular\": 3008475636,\n    \"cantidad\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8188/ventas",
+							"host": [
+								"localhost"
+							],
+							"port": "8188",
+							"path": [
+								"ventas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findVentaByVentaId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8188/ventas/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8188",
+							"path": [
+								"ventas",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findVentaByRecargaId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8188/ventas/recarga/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8188",
+							"path": [
+								"ventas",
+								"recarga",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findVentaByOperadorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8188/ventas/operador/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8188",
+							"path": [
+								"ventas",
+								"operador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
