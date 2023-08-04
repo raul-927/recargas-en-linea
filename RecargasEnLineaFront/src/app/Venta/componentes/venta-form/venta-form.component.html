@@ -1,0 +1,136 @@
+<h3>Crear Nueva Logistica</h3>
+<form class="form"
+   [formGroup] ="ventaFormGroup"
+   (ngSubmit)  ="insertVenta(ventaFormGroup.value)">
+
+   <div class="form-group">
+    <label for="precioEnvio">Fecha de Entrega:</label>
+    <input  id   ="precioEnvio"
+            name ="precioEnvio"
+    type="datetime-local"
+            [formControl]="logisticaFormGroup.controls['fechaEntrega']">
+  </div>
+
+
+   <div class="form-group">
+    <label for="persona">Vendedor:</label>
+    <select
+    [(ngModel)]="defaultValue"
+      class="form-control"
+      id="persona"
+      [formControl]="ventaFormGroup.controls['persona']">
+      <option class="dropdown-item" disabled [selected]="true" [ngValue]="defaultValue">{{defaultValue}}</option>
+      <option
+        *ngFor="let persona of personas"
+        [value]="persona.personaId" >
+          {{persona.nombre}}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="operador">Operador:</label>
+    <select
+    [(ngModel)]="defaultValue"
+      class="form-control"
+      id="operador"
+      [formControl]="ventaFormGroup.controls['operador']">
+      <option class="dropdown-item" disabled [selected]="true" [ngValue]="defaultValue">{{defaultValue}}</option>
+      <option
+        *ngFor="let operador of operadores"
+        [value]="operador.operadorId" >
+          {{operador.nombre}}
+      </option>
+    </select>
+  </div>
+
+  <div class    ="form-group">
+    <label for ="tipoRecarga">Tipo de Recarga:</label>
+    <select
+      [(ngModel)]="defaultValue3"
+      (ngModelChange)="modelChangeFn($event)"
+        class="form-control"
+        id="tipoRecarga"
+        [formControl]="logisticaFormGroup.controls['tipoRecarga']">
+        <option class="dropdown-item" disabled [selected]="true" [ngValue]="defaultValue3" >{{defaultValue3}}</option>
+        <option
+          *ngFor="let name of optionsEnumTipoRegarga; let i = index"
+          [ngValue]="name">
+            {{name}}
+        </option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="operador">Operador:</label>
+    <input  id   ="operador"
+            name ="operador"
+            [formControl]="ventaFormGroup.controls['operador']">
+  </div>
+
+  <div class="form-group">
+    <label for="cantidadProducto">Cantidad de Producto:</label>
+    <input  id   ="cantidadProducto"
+            name ="cantidadProducto"
+            [formControl]="logisticaFormGroup.controls['cantidadProducto']">
+  </div>
+
+
+  <div class="form-group">
+    <label for="cliente">Cliente:</label>
+    <select
+    [(ngModel)]="defaultValue2"
+      class="form-control"
+      id="cliente"
+      [formControl]="logisticaFormGroup.controls['cliente']">
+      <option class="dropdown-item" disabled [selected]="true" [ngValue]="defaultValue2">{{defaultValue2}}</option>
+      <option
+        *ngFor="let cliente of clientes"
+        [value]="cliente.clienteId" >
+          {{cliente.nombre}}
+      </option>
+    </select>
+  </div>
+
+  <div class    ="form-group">
+    <label for ="tipoLogistica">Tipo de Logistica:</label>
+    <select
+      [(ngModel)]="defaultValue3"
+      (ngModelChange)="modelChangeFn($event)"
+        class="form-control"
+        id="tipoLogistica"
+        [formControl]="logisticaFormGroup.controls['tipoLogistica']">
+        <option class="dropdown-item" disabled [selected]="true" [ngValue]="defaultValue3" >{{defaultValue3}}</option>
+        <option
+          *ngFor="let name of optionsEnumTipoLogistica; let i = index"
+          [ngValue]="name">
+            {{name}}
+        </option>
+    </select>
+  </div>
+
+  <div *ngIf="opcion == 'MARITIMA'">
+    <app-logistica-maritima (logisticaMaritimaFormGroupEmmiter)="getLogisticaMaritima($event)"></app-logistica-maritima>
+  </div>
+
+  <div *ngIf="opcion == 'TERRESTRE'">
+    <app-logistica-terrestre (logisticaTerrestreFormGroupEmmiter)="getLogisticaTerrestre($event)"></app-logistica-terrestre>
+  </div>
+
+  <div>
+    <app-tabla-logistica></app-tabla-logistica>
+  </div>
+
+
+
+
+
+  <div class="botonForm">
+    <button type="submit"
+    class="btn btn-primary">
+    Guardar
+  </button>
+
+  </div>
+</form>
+

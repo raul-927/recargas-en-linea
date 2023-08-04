@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OperadorFormComponent } from './Operador/componentes/operador-form/operador-form.component';
 import { OperadorTableComponent } from './Operador/componentes/operador-table/operador-table.component';
+import { VentaFormComponent } from './Venta/componentes/venta-form/venta-form.component';
+import { VentaTableComponent } from './Venta/componentes/venta-table/venta-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OperadorFormComponent,
-    OperadorTableComponent
+    OperadorTableComponent,
+    VentaFormComponent,
+    VentaTableComponent
   ],
   imports: [
     BrowserModule,
