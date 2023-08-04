@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+import com.recargas.domain.dto.TotalDto;
 import com.recargas.infrastructure.entitys.OperadorEntity;
 import com.recargas.infrastructure.entitys.RecargaEntity;
 import com.recargas.infrastructure.entitys.VentaEntity;
@@ -33,5 +34,8 @@ public interface VentaRepository extends CrudRepository<VentaEntity, Integer> {
 			+ "AND r.recarga_id  = or2.recargas_recarga_id \n"
 			+ "AND r.recarga_id = :recargaId", nativeQuery = true)
 	List<VentaEntity> findVentaByRecargaId(@Param("recargaId")int recargaId);
+	
+	@Query(name = "find_total_operador", nativeQuery = true)
+	TotalDto totalPorOperador(@Param("operadorId")int operadorId);
 
 }

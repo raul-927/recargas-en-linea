@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import com.recargas.domain.dto.TotalDto;
 import com.recargas.domain.models.Operador;
 import com.recargas.domain.models.Recarga;
 import com.recargas.domain.models.Venta;
@@ -41,6 +42,11 @@ public class SelectVentaUseCase implements SelectVentaIn {
 	public List<Venta> findVentaByRecargaId(Recarga recarga) {
 		
 		return ventaOut.findVentaByRecargaId(recarga);
+	}
+	
+	@Override
+	public TotalDto totalPorOperador(int operadorId) {
+		return ventaOut.totalPorOperador(operadorId);
 	}
 
 }

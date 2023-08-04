@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.recargas.application.services.VentaService;
+import com.recargas.domain.dto.TotalDto;
 import com.recargas.domain.models.Operador;
 import com.recargas.domain.models.Venta;
 import com.recargas.domain.models.Recarga;
@@ -74,6 +75,17 @@ public class VentaController {
 		
 		return new ResponseEntity<List<Venta>>(venResult, headers, HttpStatus.CREATED);
 	}
+	
+	@GetMapping(value ="operador/totalOperador/{operadorId}", produces ={MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<TotalDto>totalPorOperador(@PathVariable int operadorId){
+		HttpHeaders headers = new HttpHeaders();
+		TotalDto result = ventaService.totalPorOperador(operadorId);
+		
+		return new ResponseEntity<TotalDto>(result, headers, HttpStatus.CREATED);
+	}
+	
+	
+	
 	
 	
 

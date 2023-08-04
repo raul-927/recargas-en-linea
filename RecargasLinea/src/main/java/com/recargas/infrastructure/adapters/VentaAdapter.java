@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.recargas.domain.dto.TotalDto;
 import com.recargas.domain.models.Operador;
 import com.recargas.domain.models.Recarga;
 import com.recargas.domain.models.Venta;
@@ -59,6 +60,12 @@ public class VentaAdapter implements VentaOut {
 	public List<Venta> findVentaByRecargaId(Recarga recarga) {
 		List<VentaEntity> ventaResult = repository.findVentaByRecargaId(recarga.getRecargaId());
 		return (List<Venta>) mapper.toVentas(ventaResult);
+	}
+
+	@Override
+	public TotalDto totalPorOperador(int operadorId) {
+		
+		return repository.totalPorOperador(operadorId);
 	}
 
 }

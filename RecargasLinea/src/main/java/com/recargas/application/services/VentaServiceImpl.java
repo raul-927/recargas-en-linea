@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.recargas.domain.dto.TotalDto;
 import com.recargas.domain.models.Operador;
 import com.recargas.domain.models.Recarga;
 import com.recargas.domain.models.Venta;
@@ -49,6 +50,12 @@ public class VentaServiceImpl implements VentaService {
 	public List<Venta> findVentaByRecargaId(Recarga recarga) {
 		
 		return selectVentaIn.findVentaByRecargaId(recarga);
+	}
+
+	@Override
+	public TotalDto totalPorOperador(int operadorId) {
+		// TODO Auto-generated method stub
+		return selectVentaIn.totalPorOperador(operadorId);
 	}
 
 }

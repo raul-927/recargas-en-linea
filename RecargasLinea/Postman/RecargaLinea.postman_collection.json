@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"tipoRecarga\":\"PAQUETE\",\n    \"descripcion\":\"4 gigas\",\n    \"valor\": 5000\n}",
+							"raw": "{\n    \"tipoRecarga\":\"PAQUETE\",\n    \"descripcion\":\"5 gigas\",\n    \"valor\": 5000\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -48,7 +48,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"nombre\": \"MOVISTAR\",\n    \"recarga\":{\n        \"recargaId\":1    \n    }\n}",
+							"raw": "{\n    \"nombre\": \"CLARO\",\n    \"recargas\":[\n        {\n            \"recarga\":{\n            \"recargaId\":1\n            }\n        },\n        {\n            \"recarga\":{\n            \"recargaId\":2\n            }\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -99,6 +99,25 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "listPersonasByTipoPersonaEqualsVendedor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8188/personas/typeVendedor",
+							"host": [
+								"localhost"
+							],
+							"port": "8188",
+							"path": [
+								"personas",
+								"typeVendedor"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -112,7 +131,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"persona\":{\n        \"personaId\":1\n    },\n    \"operador\":{\n        \"operadorId\":1\n    },\n    \"nroCelular\": 3008475636,\n    \"cantidad\":3\n}",
+							"raw": "{\n    \"persona\":{\n        \"personaId\":1\n    },\n    \"operador\":{\n        \"operadorId\":1\n    },\n    \"recarga\":{\n        \"recargaId\":1\n    },\n    \"nroCelular\": 3005554411\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -185,6 +204,47 @@
 							"path": [
 								"ventas",
 								"operador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findVentaByOperadorId Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8188/ventas/operador/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8188",
+							"path": [
+								"ventas",
+								"operador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "totalPorOperador",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8188/ventas/operador/totalOperador/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8188",
+							"path": [
+								"ventas",
+								"operador",
+								"totalOperador",
 								"1"
 							]
 						}
