@@ -1,13 +1,14 @@
 package com.recargas.domain.models;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class Venta {
 	private int ventaId;
 	private Persona persona;
 	private Operador operador;
+	private Recarga recarga;
 	private long	nroCelular;
-	private BigDecimal cantidad;
 	
 	
 	
@@ -16,12 +17,6 @@ public class Venta {
 	}
 	public void setOperador(Operador operador) {
 		this.operador = operador;
-	}
-	public BigDecimal getCantidad() {
-		return cantidad;
-	}
-	public void setCantidad(BigDecimal cantidad) {
-		this.cantidad = cantidad;
 	}
 	public int getVentaId() {
 		return ventaId;
@@ -41,5 +36,10 @@ public class Venta {
 	public void setNroCelular(long nroCelular) {
 		this.nroCelular = nroCelular;
 	}
-
+	public Recarga getRecarga() {
+		return recarga;
+	}
+	public void setRecarga(Recarga recarga) {
+		this.recarga = recarga;
+	}
 }

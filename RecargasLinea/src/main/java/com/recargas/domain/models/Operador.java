@@ -1,9 +1,11 @@
 package com.recargas.domain.models;
 
+import java.util.List;
+
 public class Operador {
 	private int operadorId;
 	private String nombre;
-	private Recarga recarga;
+	private List<Recarga> recargas;
 	
 	
 	public String getNombre() {
@@ -12,17 +14,18 @@ public class Operador {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public Recarga getRecarga() {
-		return recarga;
-	}
-	public void setRecarga(Recarga recarga) {
-		this.recarga = recarga;
-	}
+	
 	public int getOperadorId() {
 		return operadorId;
 	}
 	public void setOperadorId(int operadorId) {
 		this.operadorId = operadorId;
+	}
+	public List<Recarga> getRecargas() {
+		return recargas;
+	}
+	public void setRecargas(List<Recarga> recargas) {
+		this.recargas = recargas;
 	}
 	
 

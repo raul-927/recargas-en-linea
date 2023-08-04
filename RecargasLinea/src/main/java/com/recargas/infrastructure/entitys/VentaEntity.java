@@ -27,10 +27,10 @@ public class VentaEntity implements Serializable{
 	@OneToOne
 	private OperadorEntity operador;
 	
+	@OneToOne
+	private RecargaEntity recarga;
+	
 	private long nroCelular;
-	
-	
-	private BigDecimal cantidad;
 	
 	
 	
@@ -39,12 +39,6 @@ public class VentaEntity implements Serializable{
 	}
 	public void setOperador(OperadorEntity operador) {
 		this.operador = operador;
-	}
-	public BigDecimal getCantidad() {
-		return cantidad;
-	}
-	public void setCantidad(BigDecimal cantidad) {
-		this.cantidad = cantidad;
 	}
 	public int getVentaId() {
 		return ventaId;
@@ -63,6 +57,12 @@ public class VentaEntity implements Serializable{
 	}
 	public void setNroCelular(long nroCelular) {
 		this.nroCelular = nroCelular;
+	}
+	public RecargaEntity getRecarga() {
+		return recarga;
+	}
+	public void setRecarga(RecargaEntity recarga) {
+		this.recarga = recarga;
 	}
 
 }

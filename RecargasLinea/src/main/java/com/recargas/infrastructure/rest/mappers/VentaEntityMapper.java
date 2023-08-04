@@ -17,8 +17,8 @@ public interface VentaEntityMapper {
 		@Mapping(source = "ventaId", 	target = "ventaId"),
         @Mapping(source = "persona", 	target = "persona"),
         @Mapping(source = "operador", 	target = "operador"),
-        @Mapping(source = "nroCelular", target = "nroCelular"),
-        @Mapping(source = "cantidad", 	target = "cantidad")
+        @Mapping(source = "recarga", target = "recarga"),
+        @Mapping(source = "nroCelular", target = "nroCelular")
 		})
 	Venta toVenta(VentaEntity ventaEntity);
 	

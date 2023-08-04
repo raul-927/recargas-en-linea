@@ -15,7 +15,6 @@
                 <constraints primaryKey="true" nullable="false" />
             </column>
             <column name="nombre" 		type="varchar(25)"/>
-            <column name="recarga_recarga_id" 	type="bigint"/>
         </createTable>
         
         <createTable tableName="persona">
@@ -42,16 +41,44 @@
             </column>
             <column name="persona_persona_id" 	 	type="bigint"/>
             <column name="operador_operador_id" 	type="bigint"/>
-            <column name="nro_celular" 	type="bigint"/>
-            <column name="cantidad" 	 type="bigint"/>
+            <column name="recarga_recarga_id" 		type="bigint"/>
+            <column name="nro_celular" 				type="bigint"/>
         </createTable>
         
         
+        <createTable tableName="operador_recargas">
+            <column name="operador_recargas_id" 	type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" 		nullable="false" />
+            </column>
+            <column name="operador_entity_operador_id" 	type="bigint"/>
+            <column name="recargas_recarga_id" 	type="bigint"/>
+        </createTable>
+        
+        <addForeignKeyConstraint  baseColumnNames="recargas_recarga_id"  
+	        baseTableName="operador_recargas"  
+	        constraintName="fk_operador_recargas_recarga_id"
+	        onDelete="CASCADE"  
+	        onUpdate="RESTRICT"  
+	        referencedColumnNames="recarga_id"   
+	        referencedTableName="recarga"   
+	        validate="true"/>
         
         
-        <addForeignKeyConstraint  baseColumnNames="recarga_recarga_id"  
-	        baseTableName="operador"  
-	        constraintName="fk_operador_recarga"
+        <addForeignKeyConstraint  baseColumnNames="operador_entity_operador_id"  
+	        baseTableName="operador_recargas"  
+	        constraintName="fk_operador_recargas_operador_id"
+	        onDelete="CASCADE"  
+	        onUpdate="RESTRICT"  
+	        referencedColumnNames="operador_id"   
+	        referencedTableName="operador"   
+	        validate="true"/>
+	        
+	        
+	        
+	        
+	 <addForeignKeyConstraint  baseColumnNames="recarga_recarga_id"  
+	        baseTableName="venta"  
+	        constraintName="fk_venta_recarga"
 	        onDelete="CASCADE"  
 	        onUpdate="RESTRICT"  
 	        referencedColumnNames="recarga_id"   

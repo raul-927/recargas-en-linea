@@ -15,7 +15,7 @@ public interface OperadorEntityMapper {
 	@Mappings({
 		@Mapping(source = "operadorId", target = "operadorId"),
         @Mapping(source = "nombre", 	target = "nombre"),
-        @Mapping(source = "recarga", 	target = "recarga")
+        @Mapping(source = "recargas", 	target = "recargas")
 		})
 	Operador toOperador(OperadorEntity operadorEntity);
 	
