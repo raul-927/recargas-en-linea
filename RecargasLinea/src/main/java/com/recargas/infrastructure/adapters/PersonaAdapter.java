@@ -53,4 +53,10 @@ public class PersonaAdapter implements PersonaOut {
 		return mapper.toPersona(perResult);
 	}
 
+	@Override
+	public List<Persona> listPersonasByTipoPersonaEqualsVendedor() {
+		List<PersonaEntity> pResult = repository.listPersonasByTipoPersonaEqualsVendedor();
+		return (List<Persona>) mapper.toPersonas(pResult);
+	}
+
 }

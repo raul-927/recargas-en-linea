@@ -30,4 +30,10 @@ public class SelectPersonaUseCase implements SelectPersonaIn {
 		return personaOut.findPersonaById(id);
 	}
 
+	@Override
+	public List<Persona> listPersonasByTipoPersonaEqualsVendedor() {
+		
+		return personaOut.listPersonasByTipoPersonaEqualsVendedor();
+	}
+
 }

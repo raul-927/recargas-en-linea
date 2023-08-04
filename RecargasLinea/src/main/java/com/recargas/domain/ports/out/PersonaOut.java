@@ -11,4 +11,5 @@ public interface PersonaOut {
 	List<Persona> findAllPersonas();
 	Persona findPersonaById(int id);
 	Persona updatePersona(Persona persona);
+	List<Persona>listPersonasByTipoPersonaEqualsVendedor();
 }

@@ -65,5 +65,13 @@ public class PersonaController {
 		
 		return new ResponseEntity<Persona>(pResult, headers, HttpStatus.OK);
 	}
+	
+	@GetMapping(value ="/typeVendedor", produces ={MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<List<Persona>> listPersonasByTipoPersonaEqualsVendedor(){
+		HttpHeaders headers = new HttpHeaders();
+		List<Persona> pResut = personaService.listPersonasByTipoPersonaEqualsVendedor();
+		
+		return new ResponseEntity<List<Persona>>(pResut, headers, HttpStatus.OK);
+	}
 
 }

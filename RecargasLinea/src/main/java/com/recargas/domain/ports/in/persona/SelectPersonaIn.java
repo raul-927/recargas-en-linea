@@ -7,5 +7,6 @@ import com.recargas.domain.models.Persona;
 public interface SelectPersonaIn {
 	List<Persona> findAllPersonas();
 	Persona findPersonaById(int id);
+	List<Persona>listPersonasByTipoPersonaEqualsVendedor();
 
 }

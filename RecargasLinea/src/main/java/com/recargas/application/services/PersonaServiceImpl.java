@@ -61,4 +61,10 @@ public class PersonaServiceImpl implements PersonaService{
 		return selectPersonaIn.findPersonaById(id);
 	}
 
+	@Override
+	public List<Persona> listPersonasByTipoPersonaEqualsVendedor() {
+		
+		return selectPersonaIn.listPersonasByTipoPersonaEqualsVendedor();
+	}
+
 }
